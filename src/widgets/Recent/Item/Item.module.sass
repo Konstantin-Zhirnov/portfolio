@@ -1,0 +1,113 @@
+@mixin figure-item($image)
+  background: url($image)
+  background-size: cover
+  transition: all .6s
+
+.figure_1
+  background: #6E07F3
+
+.figure_2
+  @include figure-item("../images/events.jpg")
+
+.figure_3
+  @include figure-item("../images/etm.jpg")
+
+.figure_4
+  @include figure-item("../images/cake.jpg")
+
+.figure_5
+  @include figure-item("../images/italian.jpg")
+
+.figure_6
+  @include figure-item("../images/older.jpg")
+
+.figure_7
+  @include figure-item("../images/books.jpg")
+
+.figure_8
+  @include figure-item("../images/panda.jpg")
+
+.figure_9
+  @include figure-item("../images/brends.jpg")
+
+.figure_10
+  @include figure-item("../images/med.jpg")
+
+.figure_11
+  @include figure-item("../images/moto.jpg")
+
+.figure_12
+  @include figure-item("../images/lion.jpg")
+
+figure
+  position: relative
+  overflow: hidden
+  border-radius: 12px
+  display: flex
+  transition: all .6s
+  min-height: 200px
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)
+  .icon
+    display: flex
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    justify-content: center
+    align-items: center
+    svg
+      fill: white
+      width: 120px
+      height: 120px
+      animation: spin 30s linear infinite
+  figcaption.figcaption
+    background: #141c3a
+    border-radius: 12px
+    transition: all .6s
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 1rem 3rem
+    color: #ffffff
+    z-index: 1
+    opacity: 0
+    p.text
+      margin-bottom: 1.5rem
+    .btn
+      margin: 0 auto
+      font-size: 18px
+      padding: 0.5rem 1.2rem
+      font-weight: 400
+      color: #ffffff
+      background-color: transparent
+      border-radius: 9999px
+      font-family: "europa", sans-serif
+      cursor: pointer
+      text-decoration: none
+      border: 2px solid transparent
+      transition: background-color 400ms
+      &:hover
+        background-color: #6E07F3
+  &:hover
+    background: transparent
+    figcaption
+      opacity: 1
+      animation: grow 1s
+      .btn
+        border: 2px solid #6E07F3
+    .icon
+      display: none
+
+@keyframes grow
+  from
+    transform: scale(0.98)
+  to
+    transform: scale(1)
+
+@keyframes spin
+  100%
+    transform: rotate(360deg)
+
+
+
