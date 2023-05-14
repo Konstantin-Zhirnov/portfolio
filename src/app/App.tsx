@@ -1,4 +1,7 @@
-import { Header, Hello, Devices, About, Blocks, Recent, Footer } from '../widgets'
+import React from 'react'
+
+import { Header, Hello, Devices, About, Recent, Footer } from '../widgets'
+
 import './App.sass'
 
 const App = () => {
@@ -8,7 +11,6 @@ const App = () => {
       <Hello />
       <Devices />
       <About />
-      <Blocks />
       <Recent />
       <Footer />
     </>

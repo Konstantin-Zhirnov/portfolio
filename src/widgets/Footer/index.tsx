@@ -9,9 +9,17 @@ import classes from './Footer.module.sass'
 const Footer: React.FC = () => {
   return (
     <footer className={classes.footer}>
-      <h3>Are you interested in working together? We should discuss this.</h3>
-      <h4>Konstantin Zhirnov</h4>
-      <p>Living, learning, & leveling up one day at a time.</p>
+      <p className={classes.title}>Interested in working</p>
+      <p className={`${classes.title} ${classes.last}`}>together?</p>
+
+      <a className={classes.phone} href="tel:+12507972834">
+        get in touch
+      </a>
+
+      <a className={classes.resume} href="/Konstantin_Zhirnov.pdf" target="_blank" rel="noreferrer">
+        see resume
+      </a>
+
       <div className={classes.links}>
         <a href="https://www.linkedin.com/in/kostya-zhirnov/">
           <FaLinkedinIn />

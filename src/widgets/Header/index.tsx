@@ -5,9 +5,8 @@ import classes from './Header.module.sass'
 
 const Header: React.FC = () => {
   return (
-    <header className={classes.header}>
+    <header className={classes.container}>
       <Logo />
-      <p>Konstantin Zhirnov</p>
     </header>
   )
 }

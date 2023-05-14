@@ -1,14 +1,9 @@
-.header
-  padding: 1.6rem 3rem
-  margin-bottom: 100px
+.container
+  padding: 1.6rem 0 4rem
   display: flex
   align-items: center
-  gap: 10px
-  p
-    font-family: "eurostile-bold", sans-serif
-    font-size: 2rem
-    font-weight: bold
-    color: #6E07F3
+  justify-content: center
+
   svg
     fill: #6E07F3
     animation: spin 30s linear infinite
@@ -16,11 +11,3 @@
 @keyframes spin
   100%
     transform: rotate(360deg)
-
-@media (max-width: 460px)
-  .header
-    padding: 1.6rem 1rem
-    margin-bottom: 50px
-    p
-      font-size: 1.8rem
-      white-space: nowrap

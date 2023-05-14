@@ -1,31 +1,58 @@
-.about
+.section
   background-color: #6E07F3
-  padding: 9rem 4.5rem
-  text-align: center
+  margin-bottom: 6rem
 
-  .wrapper
-    width: 64%
-    color: white
+  .container_text
+    max-width: 1300px
+    padding: clamp(1.6rem, 4vw, 3rem)
     margin: auto
 
-    h3
-      font-family: "eurostile-bold", sans-serif
-      font-size: 2rem
-      font-weight: bold
-      margin-bottom: 1.5rem
     p
-      font-family: "europa", sans-serif
-      font-weight: 400
-      font-size: 1.25rem
-      line-height: 1.5
-      margin-bottom: 1rem
+      font-size: clamp(1.2rem, 3.8vw, 3rem)
+      font-weight: 600
+      color: #FFFFFF
 
-@media (max-width: 640px)
-  .about
-    padding: 9rem 1.5rem
-    .wrapper
-      width: 100%
-      h3
-        font-size: 1.8rem
-      p
-        font-size: 1.1rem
+      span
+        color: rgba(255, 255, 255, 0.6)
+
+  .container_blocks
+    max-width: 1300px
+    padding: clamp(1rem, 4vw, 3rem)
+    margin: auto
+    .blocks
+      display: grid
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))
+      gap: clamp(1rem, 2vw, 24px)
+      .column
+        display: block
+        flex-basis: 0
+        flex-grow: 1
+        flex-shrink: 1
+        padding: 30px
+        text-align: center
+        background: rgba(0, 0, 0, 0.15)
+        border-radius: 30px
+        .icon
+          display: flex
+          margin: 0 auto 2rem
+          width: 95px
+          height: 95px
+          border-radius: 50%
+          background: #5BE9B9
+          justify-content: center
+          align-items: center
+          svg
+            width: 28px
+            height: 28px
+        h3
+          font-family: "poppins-bold", sans-serif
+          color: #ffffff
+          font-weight: 700
+          font-size: 1.3rem
+          margin-bottom: 1.3rem
+          text-align: center
+          letter-spacing: 0.03em
+          text-transform: uppercase
+        p
+          color: #ffffff
+          font-size: 0.86rem

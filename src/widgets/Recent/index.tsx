@@ -6,11 +6,9 @@ import { items } from './items'
 
 const Recent: React.FC = () => {
   return (
-    <section className={classes.recent}>
+    <section className={classes.section}>
       <div className={classes.container}>
-        <h2>My Recent Work</h2>
-
-        <p>Here are a few past projects in the development of which I was directly involved.</p>
+        <h2>Recent projects</h2>
 
         <div className={classes.grid_container}>
           {items.map((item, index) => (

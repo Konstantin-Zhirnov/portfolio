@@ -1,33 +1,44 @@
 .footer
   background-color: #6E07F3
-  padding: 9rem 4.5rem 2.5rem
   text-align: center
-  h3
-    max-width: 1200px
-    border-radius: 12px
-    color: white
-    margin: -11rem auto 0
-    font-family: "eurostile-bold", sans-serif
-    font-size: 1.7rem
-    font-weight: bold
-    padding: 3.5rem 1.25rem
-    background-color: #141c3a
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #141c3a
+  padding: 2.4rem 0
+  .title
+    color: #FFFFFF
+    font-family: "poppins-bold", sans-serif
+    font-size: clamp(1.6rem, 7.4vw, 6rem)
+    line-height: clamp(1.6rem, 7.4vw, 6rem)
+    font-weight: 900
+    text-transform: uppercase
+    padding: 0 clamp(1rem, 5vw, 5rem)
+    letter-spacing: -2px
+    margin: 0
+    &.last
+      margin-bottom: 2rem
 
-  h4
-    font-family: "eurostile-bold", sans-serif
-    font-size: 2rem
-    font-weight: bold
-    margin: 4rem auto 2rem
-    color: white
+  .phone
+    text-decoration: none
+    background-color: #5BE9B9
+    padding: 14px 30px
+    color: #141c3a
+    border-radius: 30px
+    text-transform: uppercase
+    display: flex
+    justify-content: center
+    margin: 0 auto 2rem
+    width: fit-content
+    font-weight: 600
+    transition: background-color 400ms
+    &:hover
+      background-color: #4dc69d
+      transition: background-color 400ms
 
-  p
-    color: white
-    text-align: center
-    font-size: 1.2rem
-    margin: 0 auto 4rem
-    max-width: 300px
-    font-weight: 400
+  .resume
+    display: block
+    text-transform: uppercase
+    color: #FFFFFF
+    font-size: 0.9rem
+    margin-bottom: 5rem
+
   .links
     display: flex
     gap: 18px
@@ -51,8 +62,3 @@
         transition: all 400ms
       svg
         font-size: 1.25rem
-@media (max-width: 640px)
-  .footer
-    padding: 9rem 1.5rem 2.5rem
-    h3
-      font-size: 1.3rem

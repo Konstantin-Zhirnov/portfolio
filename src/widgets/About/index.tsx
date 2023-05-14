@@ -1,24 +1,55 @@
 import React from 'react'
 
 import classes from './About.module.sass'
+import { FaCode, FaDatabase, FaFeatherAlt } from 'react-icons/fa'
 
 const About: React.FC = () => {
   return (
-    <section className={classes.about}>
-      <div className={classes.wrapper}>
-        <h3>Hi, I’m Konstantin. Nice to meet you.</h3>
-        <p>I have been successfully developing web interfaces for over 5 years.</p>
+    <section className={classes.section}>
+      <div className={classes.container_text}>
         <p>
-          I enjoy being a front-end developer because I am responsible for implementing the
-          front-end of the application, how the back-end and design interact with the user.
+          I enjoy front-end because my work ensures an application is accessible, responsive, and
+          delivers a great user experience.{' '}
+          <span>To accomplish that, I am constantly working on improving my chops.</span>
         </p>
-        <p>
-          How the application behaves on different screen resolutions and accessibility for people
-          with disabilities depends on my work.
-        </p>
-        <p>
-          I'm quietly confident, naturally curious, and perpetually working on improving my chops.
-        </p>
+      </div>
+
+      <div className={classes.container_blocks}>
+        <div className={classes.blocks}>
+          <div className={classes.column}>
+            <div className={classes.icon}>
+              <FaCode />
+            </div>
+            <h3>Web development</h3>
+            <p>JavaScript, React, Next.js,</p>
+            <p>TypeScript, Redux, Cypress, Jest,</p>
+            <p>React Testing Library,</p>
+            <p>Apollo GraphQL, REST API, HTML5,</p>
+            <p>CSS3, SASS, LESS, Node.js, Express,</p>
+            <p>WebSocket, AG-GRID, JSON</p>
+          </div>
+
+          <div className={classes.column}>
+            <div className={classes.icon}>
+              <FaFeatherAlt />
+            </div>
+            <h3>Design</h3>
+            <p>Material-UI</p>
+            <p>Ant design</p>
+            <p>Bootstrap</p>
+            <p>Chakra UI</p>
+            <p>Styled component</p>
+          </div>
+
+          <div className={classes.column}>
+            <div className={classes.icon}>
+              <FaDatabase />
+            </div>
+            <h3>Data Base</h3>
+            <p>MongoDB</p>
+            <p>MySQL</p>
+          </div>
+        </div>
       </div>
     </section>
   )

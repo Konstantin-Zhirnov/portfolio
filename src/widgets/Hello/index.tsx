@@ -4,10 +4,14 @@ import classes from './Hello.module.sass'
 
 const Hello: React.FC = () => {
   return (
-    <section className={classes.hello}>
-      <h1>Frontend Developer &amp; React Developer</h1>
-      <h2>I design and code beautifully simple things, and I love what I do.</h2>
-      <div className={classes.photo}></div>
+    <section className={classes.section}>
+      <p className={classes.title}>Front-end &amp; React</p>
+      <p className={`${classes.title} ${classes.last}`}>Developer</p>
+      <p className={classes.text}>
+        I’m Konstantin Zhirnov, an IT professional with over five years of solid experience in
+        front-end development, based in Canada.
+      </p>
+      <a href="tel:+12507972834">get in touch</a>
     </section>
   )
 }
