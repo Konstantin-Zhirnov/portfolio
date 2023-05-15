@@ -34,6 +34,12 @@ const Footer: React.FC = () => {
           <BsWhatsapp />
         </a>
       </div>
+
+      <div className={classes.thanks}>
+        <a href="https://vovavindar.com/?" target="_blank">
+          Designed by Vova Vindar
+        </a>
+      </div>
     </footer>
   )
 }

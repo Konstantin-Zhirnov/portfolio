@@ -87,9 +87,10 @@ figure
       cursor: pointer
       text-decoration: none
       text-transform: uppercase
-      transition: background-color 400ms
+      transition: background-color cubic-bezier(0.38, 0.005, 0.215, 1) 0.3s
       &:hover
         background-color: rgba(0, 0, 0, 0.2)
+        transition: background-color cubic-bezier(0.38, 0.005, 0.215, 1) 0.3s
   &:hover
     background: transparent
     figcaption
