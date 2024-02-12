@@ -17,7 +17,7 @@ const Item: React.FC<PropType> = ({ text, url, id }) => {
         </a>
       </figcaption>
 
-      <div className={classes.icon}>{id === 1 && <Logo />}</div>
+      <div className={classes.icon}>{id === 2 && <Logo />}</div>
     </figure>
   )
 }
