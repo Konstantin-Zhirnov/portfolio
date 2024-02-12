@@ -26,7 +26,7 @@ const About: React.FC = () => {
             <p>React Testing Library,</p>
             <p>Apollo GraphQL, REST API, HTML5,</p>
             <p>CSS3, SASS, LESS, Node.js, Express,</p>
-            <p>WebSocket, AG-GRID, JSON</p>
+            <p>Nest.js, WebSocket, JSON</p>
           </div>
 
           <div className={classes.column}>
