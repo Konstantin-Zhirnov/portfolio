@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
       </a>
 
       <div className={classes.links}>
-        <a href="https://www.linkedin.com/in/kostya-zhirnov/">
+        <a href="https://www.linkedin.com/in/kostya-zhirnov/" target="_blank" rel="noreferrer">
           <FaLinkedinIn />
         </a>
         <a href="mailto:kostya.zhirnov@gmail.com">
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className={classes.thanks}>
-        <a href="https://vovavindar.com/?" target="_blank">
+        <a href="https://vovavindar.com/?" target="_blank" rel="noreferrer">
           Designed by Vova Vindar
         </a>
       </div>
