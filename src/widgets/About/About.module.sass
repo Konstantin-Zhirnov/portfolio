@@ -1,59 +1,145 @@
-.section
-  background-color: #6E07F3
-  margin-bottom: 6rem
+.about
+  background: var(--bg)
 
-  .container_text
-    max-width: 1300px
-    padding: clamp(1.6rem, 4vw, 3rem)
-    margin: auto
+.grid
+  display: grid
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr)
+  gap: clamp(2rem, 5vw, 4.5rem)
+  align-items: center
 
-    p
-      font-size: clamp(1.2rem, 3.8vw, 3rem)
-      font-weight: 600
-      color: #FFFFFF
-      line-height: 110%
-      letter-spacing: -0.01em
+.portrait
+  position: relative
+  aspect-ratio: 4 / 5
+  border-radius: 14px
+  overflow: hidden
+  border: var(--hair) solid var(--line-2)
+  background: var(--surface)
+  // accent rim light — the only place the red touches the photograph
+  box-shadow: 0 2.4rem 5rem rgba(0, 0, 0, 0.6)
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+  // the sequence draws over the still once its first plate has decoded
+  .canvas
+    position: absolute
+    inset: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    visibility: hidden
+  // hairline on the leading edge that measures how far the sequence has played
+  .scan
+    z-index: 1
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    width: 2px
+    background: linear-gradient(180deg, var(--red), rgba(225, 29, 42, 0))
+    box-shadow: 0 0 8px 0 var(--red-soft)
+    transform: scaleY(0)
+    transform-origin: top
+  // the plate is already lit for this stage, so the only scrim left is the one
+  // the caption needs to stay legible at the bottom edge
+  &::after
+    content: ''
+    position: absolute
+    inset: 0
+    pointer-events: none
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0) 58%, rgba(5, 5, 5, 0.66))
+  figcaption
+    z-index: 1
+    position: absolute
+    left: 1rem
+    bottom: 1rem
+    padding: 0.45rem 0.85rem
+    border-radius: 100vmax
+    background: var(--scrim)
+    backdrop-filter: blur(10px)
+    border: var(--hair) solid var(--line)
+    font-family: var(--f-mono)
+    font-size: var(--fs-mono)
+    font-weight: 500
+    letter-spacing: 0.16em
+    text-transform: uppercase
+    color: var(--body)
 
-      span
-        color: rgba(255, 255, 255, 0.6)
+.text
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 1.5rem
 
-  .container_blocks
-    max-width: 1300px
-    padding: clamp(1rem, 4vw, 3rem)
-    margin: auto
-    .blocks
-      display: grid
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))
-      gap: clamp(1rem, 2vw, 24px)
-      .column
-        display: block
-        flex-basis: 0
-        flex-grow: 1
-        flex-shrink: 1
-        padding: 30px
-        text-align: center
-        background: rgba(0, 0, 0, 0.15)
-        border-radius: 30px
-        .icon
-          display: flex
-          margin: 0 auto 2rem
-          width: 95px
-          height: 95px
-          border-radius: 50%
-          background: #5BE9B9
-          justify-content: center
-          align-items: center
-          svg
-            width: 28px
-            height: 28px
-        h3
-          color: #ffffff
-          font-weight: 700
-          font-size: 1.3rem
-          margin-bottom: 1.3rem
-          text-align: center
-          letter-spacing: 0.03em
-          text-transform: uppercase
-        p
-          color: #ffffff
-          font-size: 1rem
+.title
+  font-size: clamp(2rem, 5vw, 4rem)
+
+.body
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  max-width: 38rem
+  color: var(--body)
+
+.chips
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+  span
+    padding: 0.5rem 0.95rem
+    border: var(--hair) solid var(--line)
+    border-radius: 100vmax
+    background: var(--card)
+    font-family: var(--f-mono)
+    font-size: var(--fs-mono)
+    font-weight: 500
+    letter-spacing: 0.14em
+    text-transform: uppercase
+    color: var(--body)
+
+.stats
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  margin-top: clamp(3rem, 6vw, 5rem)
+  border: var(--hair) solid var(--line)
+  border-radius: 12px
+  overflow: hidden
+  background: var(--bg)
+  // dividers live on the cells, so the grid never flashes a light bar
+  // while its children are still hidden by the reveal
+  > div
+    padding: clamp(1.4rem, 2.6vw, 2.2rem)
+    border-left: var(--hair) solid var(--line)
+    &:first-child
+      border-left: none
+  dt
+    font-family: var(--f-display)
+    // counting digits must not reflow the cell on the way up
+    font-variant-numeric: tabular-nums
+    font-weight: 800
+    font-size: clamp(1.9rem, 3.4vw, 3rem)
+    line-height: 1
+    letter-spacing: -0.03em
+    color: var(--ink)
+  dd
+    margin-top: 0.6rem
+    font-family: var(--f-mono)
+    font-size: var(--fs-mono)
+    font-weight: 500
+    letter-spacing: 0.14em
+    text-transform: uppercase
+    color: var(--sub)
+
+@media (max-width: 900px)
+  .grid
+    grid-template-columns: 1fr
+  .portrait
+    max-width: 22rem
+  .stats
+    grid-template-columns: repeat(2, 1fr)
+    > div
+      border-top: var(--hair) solid var(--line)
+      &:nth-child(2n + 1)
+        border-left: none
+      &:nth-child(-n + 2)
+        border-top: none

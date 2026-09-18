@@ -1,0 +1,72 @@
+.expertise
+  background: var(--bg)
+
+.track
+  position: relative
+  display: grid
+  grid-template-columns: repeat(4, minmax(0, 1fr))
+  gap: clamp(0.85rem, 1.6vw, 1.35rem)
+  // the dashed path that threads the four cards, as in the reference
+  &::before
+    content: ''
+    position: absolute
+    left: 8%
+    right: 8%
+    top: 50%
+    border-top: 1px dashed var(--line-2)
+    z-index: 0
+
+.card
+  position: relative
+  z-index: 1
+  display: flex
+  flex-direction: column
+  gap: 0.9rem
+  padding: clamp(1.3rem, 2.2vw, 1.9rem)
+  border: var(--hair) solid var(--line)
+  border-radius: 14px
+  background: var(--surface)
+  color: var(--body)
+  transition: border-color var(--t-slow) var(--e-io), background var(--t-slow) var(--e-io), transform var(--t-slow) var(--e-io)
+  // alternate the vertical rhythm so the dashed path reads as a route
+  &:nth-child(even)
+    transform: translateY(2.2rem)
+  // a tap has no hover to leave, so the lit state is a pointer-only gesture
+  @media (hover: hover)
+    &:hover
+      border-color: var(--red-edge)
+      background: linear-gradient(180deg, rgba(225, 29, 42, 0.16), var(--surface) 70%)
+    &:nth-child(even):hover
+      transform: translateY(calc(2.2rem - 4px))
+    &:nth-child(odd):hover
+      transform: translateY(-4px)
+
+.n
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.2em
+  color: var(--red-ink)
+
+.title
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: var(--fs-h3)
+  line-height: 1.05
+  letter-spacing: -0.02em
+  text-transform: uppercase
+  color: var(--ink)
+
+@media (max-width: 1080px)
+  .track
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+    &::before
+      display: none
+  .card:nth-child(even)
+    transform: none
+  .card:nth-child(even):hover
+    transform: translateY(-4px)
+
+@media (max-width: 620px)
+  .track
+    grid-template-columns: 1fr

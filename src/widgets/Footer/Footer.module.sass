@@ -1,80 +1,134 @@
 .footer
-  background-color: #6E07F3
-  text-align: center
-  padding: 2.4rem 0 1.4rem
-  .title
-    color: #FFFFFF
-    font-size: clamp(1.8rem, 8vw, 7rem)
-    line-height: clamp(1.8rem, 8vw, 7rem)
-    font-weight: 900
-    text-transform: uppercase
-    padding: 0 clamp(1rem, 5vw, 5rem)
-    letter-spacing: -0.03em
-    margin: 0
-    &.last
-      margin-bottom: 1.2rem
+  position: relative
+  background: var(--bg)
+  border-top: var(--hair) solid var(--line)
+  padding-top: clamp(3.5rem, 7vw, 6rem)
+  overflow: hidden
 
-  .phone
-    text-decoration: none
-    background-color: #5BE9B9
-    padding: 14px 30px
-    color: #141c3a
-    border-radius: 30px
-    text-transform: uppercase
-    display: flex
-    justify-content: center
-    margin: 0 auto 1.1rem
-    width: fit-content
-    font-weight: 600
-    transition: background-color 400ms
-    letter-spacing: 0.03em
-    &:hover
-      background-color: #4dc69d
-      transition: background-color 400ms
+.top
+  display: grid
+  grid-template-columns: repeat(3, minmax(0, 0.7fr)) minmax(0, 1.4fr)
+  gap: clamp(1.75rem, 4vw, 3rem)
+  padding-bottom: clamp(3rem, 6vw, 5rem)
 
-  .resume
-    display: block
-    text-transform: uppercase
-    color: #FFFFFF
-    font-size: 0.9rem
-    margin-bottom: 5rem
-    transition: color 0.3s
-    &:hover
-      color: rgba(255, 255, 255, 0.7)
-      transition: color 0.3s
-
-  .links
-    display: flex
-    gap: 18px
-    justify-content: center
-    margin-bottom: 1.4rem
-    a
-      background-color: transparent
-      color: #ffffff
-      border-radius: 100%
-      margin: 0 0.2rem
-      height: 47px
-      width: 47px
-      border: 2px solid rgba(255, 255, 255, 0.5)
-      display: flex
-      justify-content: center
+.col
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 0.6rem
+  a
+    font-size: 0.95rem
+    @media (pointer: coarse)
+      display: inline-flex
       align-items: center
-      transition: all 400ms
-      &:hover
-        background: #ffffff
-        color: #6E07F3
-        border: 2px solid white
-        transition: all 400ms
-      svg
-        font-size: 1.25rem
+      min-height: 44px
+    color: var(--body)
+    transition: color var(--t-hover) var(--e-io), transform var(--t-hover) var(--e-io)
+    &:hover
+      color: var(--red-ink)
+      transform: translateX(3px)
 
-  .thanks
-    display: flex
+.colHead
+  margin-bottom: 0.45rem
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: var(--disable)
+
+.cta
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 0.9rem
+
+.ctaText
+  max-width: 24rem
+  color: var(--body)
+
+.mail
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem)
+  letter-spacing: -0.02em
+  color: var(--ink)
+  border-bottom: 2px solid var(--red)
+  padding-bottom: 0.15rem
+  @media (pointer: coarse)
+    display: inline-flex
+    align-items: center
+    min-height: 44px
+  transition: color var(--t-hover) var(--e-io)
+  &:hover
+    color: var(--red-ink)
+
+// ── the giant wordmark that closes the page ───────────────
+.wordmark
+  margin: 0 auto
+  padding-inline: var(--gutter)
+  max-width: var(--container)
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: clamp(3.4rem, 17.2vw, 16rem)
+  line-height: 0.82
+  letter-spacing: -0.045em
+  text-transform: lowercase
+  text-align: center
+  color: var(--ink)
+  user-select: none
+  background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.18))
+  -webkit-background-clip: text
+  background-clip: text
+  -webkit-text-fill-color: transparent
+  // the brand's red period closes the page, as it opens it in the bar
+  span
+    -webkit-text-fill-color: var(--red)
+
+.bottom
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  gap: 1rem
+  margin-top: clamp(1.5rem, 3vw, 2.5rem)
+  padding-block: 1.5rem
+  border-top: var(--hair) solid var(--line)
+  font-family: var(--f-mono)
+  font-size: var(--fs-micro)
+  font-weight: 500
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: var(--disable)
+
+.icons
+  display: flex
+  gap: 0.5rem
+  a
+    display: grid
+    place-items: center
+    width: 34px
+    height: 34px
+    @media (pointer: coarse)
+      width: 44px
+      height: 44px
+    border: var(--hair) solid var(--line)
+    border-radius: 50%
+    color: var(--body)
+    font-size: 1rem
+    transition: color var(--t-hover) var(--e-io), border-color var(--t-hover) var(--e-io), background var(--t-hover) var(--e-io)
+    &:hover
+      color: #fff
+      border-color: var(--red)
+      background: var(--red)
+
+@media (max-width: 900px)
+  .top
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  .cta
+    grid-column: 1 / -1
+
+@media (max-width: 560px)
+  .bottom
     justify-content: center
-    a
-      color: #FFFFFF
-      transition: color 0.3s
-      font-size: 0.86rem
-      &:hover
-        color: rgba(255, 255, 255, 0.7)
-        transition: color 0.3s
+    text-align: center

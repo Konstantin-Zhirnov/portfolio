@@ -1,0 +1,71 @@
+.cursor
+  position: fixed
+  inset: 0
+  z-index: 400
+  pointer-events: none
+  // the layer only exists once the effect has decided this pointer deserves it
+  display: none
+  :global(.has-cursor) &
+    display: block
+
+.ring, .dot
+  position: fixed
+  top: 0
+  left: 0
+  opacity: 0
+  visibility: hidden
+  will-change: transform
+
+// the ring is a zero-size anchor GSAP moves; the box inside carries the state,
+// so hovering a link scales a transform instead of relaying out a box
+.box
+  position: absolute
+  top: 0
+  left: 0
+  width: 2.4rem
+  height: 2.4rem
+  margin: -1.2rem 0 0 -1.2rem
+  border-radius: 100vmax
+  border: var(--hair) solid var(--line-2)
+  transition: transform var(--t-hover) var(--e-out), border-color var(--t-hover) var(--e-out), background-color var(--t-hover) var(--e-out)
+
+.dot
+  width: 5px
+  height: 5px
+  margin: -2.5px 0 0 -2.5px
+  border-radius: 50%
+  background: var(--ink)
+  // inverts over white type, disappears into the red ring — one element, two readings
+  mix-blend-mode: difference
+
+// anything clickable opens the ring and brings the accent in
+.hot .box
+  transform: scale(1.667)
+  border-color: var(--red)
+  background: var(--red-soft)
+
+// elements that name themselves get a filled disc with the label over it
+.labelled .box
+  transform: scale(2.667)
+  border-color: transparent
+  background: var(--red)
+
+// the label sits outside the scaled box, so its type never resamples
+.label
+  position: absolute
+  top: 0
+  left: 0
+  white-space: nowrap
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: var(--ink)
+  opacity: 0
+  transform: translate(-50%, -50%) scale(0.8)
+  transition: opacity var(--t-hover) var(--e-out), transform var(--t-hover) var(--e-out)
+
+.labelled .label
+  opacity: 1
+  transform: translate(-50%, -50%)

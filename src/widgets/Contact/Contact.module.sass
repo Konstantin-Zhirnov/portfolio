@@ -1,0 +1,189 @@
+.contact
+  position: relative
+  background: var(--bg-sub)
+  border-top: var(--hair) solid var(--line)
+  overflow: hidden
+  // one last ember at the bottom of the page
+  &::before
+    content: ''
+    position: absolute
+    left: 50%
+    bottom: -32rem
+    width: 52rem
+    height: 52rem
+    transform: translateX(-50%)
+    border-radius: 50%
+    background: radial-gradient(circle, rgba(225, 29, 42, 0.16), rgba(225, 29, 42, 0) 62%)
+    pointer-events: none
+
+.grid
+  position: relative
+  z-index: 1
+  display: grid
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr)
+  gap: clamp(2rem, 5vw, 4.5rem)
+  align-items: start
+
+.left
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 1.5rem
+
+.title
+  font-size: clamp(2.2rem, 6vw, 4.6rem)
+
+.accent
+  color: var(--red)
+
+.channels
+  list-style: none
+  width: 100%
+  margin-top: 0.75rem
+  border-top: var(--hair) solid var(--line)
+  a
+    display: flex
+    align-items: baseline
+    justify-content: space-between
+    gap: 1rem
+    padding: 0.9rem 0.25rem
+    border-bottom: var(--hair) solid var(--line)
+    transition: background var(--t-hover) var(--e-io)
+    &:hover
+      background: var(--red-soft)
+      .channelLabel
+        transform: translateX(0.45rem)
+      .channelValue
+        color: var(--red-ink)
+
+.channelStatic
+  display: flex
+  align-items: baseline
+  justify-content: space-between
+  gap: 1rem
+  padding: 0.9rem 0.25rem
+  border-bottom: var(--hair) solid var(--line)
+
+.channelLabel
+  transition: transform var(--t-hover) var(--e-io)
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.2em
+  text-transform: uppercase
+  color: var(--sub)
+
+.channelValue
+  font-size: 0.95rem
+  color: var(--ink)
+  transition: color var(--t-hover) var(--e-io)
+  text-align: right
+  word-break: break-word
+
+// ── contact card ──────────────────────────────────────────
+.card
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 1.25rem
+  padding: clamp(1.5rem, 3vw, 2.6rem)
+  border: var(--hair) solid var(--line)
+  border-radius: 16px
+  background: rgba(16, 16, 20, 0.7)
+  backdrop-filter: blur(14px)
+
+.cardHead
+  width: 100%
+  padding-bottom: 1rem
+  border-bottom: var(--hair) solid var(--line)
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: var(--sub)
+
+.mail
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: clamp(1.25rem, 2.6vw, 2rem)
+  line-height: 1.1
+  letter-spacing: -0.028em
+  color: var(--ink)
+  border-bottom: 2px solid var(--red)
+  padding-bottom: 0.2rem
+  @media (pointer: coarse)
+    display: inline-flex
+    align-items: center
+    min-height: 44px
+  word-break: break-word
+  transition: color var(--t-hover) var(--e-io)
+  &:hover
+    color: var(--red-ink)
+
+.cardNote
+  color: var(--body)
+  font-size: 0.95rem
+
+.buttons
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+  a
+    display: inline-flex
+    align-items: center
+    gap: 0.6rem
+    padding: 0.7rem 1.1rem
+    border: var(--hair) solid var(--line)
+    border-radius: 100vmax
+    background: var(--card)
+    font-family: var(--f-mono)
+    font-size: var(--fs-mono)
+    font-weight: 500
+    letter-spacing: 0.14em
+    text-transform: uppercase
+    color: var(--body)
+    transition: border-color var(--t-hover) var(--e-io), color var(--t-hover) var(--e-io), background var(--t-hover) var(--e-io)
+    svg
+      width: 1.35em
+      height: 1.35em
+      flex-shrink: 0
+    &:hover
+      border-color: var(--red)
+      background: var(--red-soft)
+      color: var(--ink)
+
+.call
+  position: relative
+  display: inline-flex
+  align-items: center
+  margin-top: 0.25rem
+  padding: 0.95rem 1.7rem
+  border: var(--hair) solid var(--line-2)
+  border-radius: 100vmax
+  overflow: hidden
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--ink)
+  transition: border-color var(--t-slow) var(--e-io)
+  span
+    position: relative
+    z-index: 1
+  i
+    position: absolute
+    inset: 0
+    z-index: 0
+    background: var(--red)
+    clip-path: inset(0.32rem calc(100% - 1.5rem) 0.32rem calc(100% - 0.6rem) round 100vmax)
+    transition: clip-path var(--t-slow) var(--e-io)
+  &:hover
+    border-color: var(--red)
+    i
+      clip-path: inset(0 round 100vmax)
+
+@media (max-width: 900px)
+  .grid
+    grid-template-columns: 1fr

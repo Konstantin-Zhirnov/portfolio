@@ -1,58 +1,46 @@
 import React from 'react'
 
+import { aboutChips, heads, profile, stats } from '../../shared/content'
+import { Title } from '../../shared/ui/SectionHead'
+import { Portrait } from './Portrait'
+
 import classes from './About.module.sass'
-import { FaCode, FaDatabase, FaFeatherAlt } from 'react-icons/fa'
 
-const About: React.FC = () => {
-  return (
-    <section className={classes.section}>
-      <div className={classes.container_text}>
-        <p>
-          I enjoy front-end because my work ensures an application is accessible, responsive, and
-          delivers a great user experience.{' '}
-          <span>To accomplish that, I am constantly working on improving my chops.</span>
-        </p>
-      </div>
+const About: React.FC = () => (
+  <section className={`section ${classes.about}`} id="about">
+    <div className="container">
+      <div className={classes.grid}>
+        <Portrait alt={`${profile.name}, ${profile.role}`} caption={profile.location} />
 
-      <div className={classes.container_blocks}>
-        <div className={classes.blocks}>
-          <div className={classes.column}>
-            <div className={classes.icon}>
-              <FaCode />
-            </div>
-            <h3>Web development</h3>
-            <p>JavaScript, React, Next.js,</p>
-            <p>TypeScript, Redux, Cypress, Jest,</p>
-            <p>React Testing Library,</p>
-            <p>Apollo GraphQL, REST API, HTML5,</p>
-            <p>CSS3, SASS, LESS, Node.js, Express,</p>
-            <p>Nest.js, WebSocket, JSON</p>
+        <div className={classes.text}>
+          <p className="eyebrow">{heads.about.eyebrow}</p>
+
+          <Title lines={heads.about.title} className={classes.title} />
+
+          <div className={classes.body} data-reveal="stagger">
+            {profile.bio.map((paragraph) => (
+              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+            ))}
           </div>
 
-          <div className={classes.column}>
-            <div className={classes.icon}>
-              <FaFeatherAlt />
-            </div>
-            <h3>Design</h3>
-            <p>Material-UI</p>
-            <p>Ant design</p>
-            <p>Bootstrap</p>
-            <p>Chakra UI</p>
-            <p>Styled component</p>
-          </div>
-
-          <div className={classes.column}>
-            <div className={classes.icon}>
-              <FaDatabase />
-            </div>
-            <h3>Data Base</h3>
-            <p>MongoDB</p>
-            <p>MySQL</p>
+          <div className={classes.chips} data-reveal="stagger">
+            {aboutChips.map((chip) => (
+              <span key={chip}>{chip}</span>
+            ))}
           </div>
         </div>
       </div>
-    </section>
-  )
-}
+
+      <dl className={classes.stats} data-reveal="stagger">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <dt data-count={stat.value}>{stat.value}</dt>
+            <dd>{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+)
 
 export { About }

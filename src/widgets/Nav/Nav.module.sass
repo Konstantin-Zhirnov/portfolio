@@ -1,0 +1,212 @@
+.header
+  position: fixed
+  inset: 0 0 auto 0
+  z-index: 100
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 1rem
+  padding: calc(1.1rem + var(--safe-top)) var(--gutter) 1.1rem
+  border-bottom: var(--hair) solid transparent
+  transition: border-color var(--t-hover) var(--e-io)
+  // The scrim sits on a layer of its own. A backdrop-filter on the header itself
+  // makes it the containing block of the fixed menu panel, which then shrinks to
+  // the height of the bar the moment the page has scrolled.
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    z-index: -1
+    background: var(--scrim)
+    backdrop-filter: blur(18px) saturate(140%)
+    opacity: 0
+    transition: opacity var(--t-hover) var(--e-io)
+
+.scrolled
+  border-bottom-color: var(--line)
+  &::before
+    opacity: 1
+
+.mark
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: 0.98rem
+  letter-spacing: -0.01em
+  text-transform: uppercase
+  color: var(--ink)
+  white-space: nowrap
+  span
+    color: var(--red-ink)
+
+.links
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  a
+    position: relative
+    color: var(--body)
+    transition: color var(--t-hover) var(--e-io)
+    &:hover
+      color: var(--ink)
+    // the accent underscore only exists for the section you are standing in
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      bottom: -0.45rem
+      height: var(--hair)
+      background: var(--red)
+      transform: scaleX(0)
+      transform-origin: left
+      transition: transform var(--t-slow) var(--e-out)
+
+.active
+  color: var(--ink)
+  &::after
+    transform: scaleX(1)
+
+.sep
+  color: var(--disable)
+
+// page progress, hairline under the bar
+.progress
+  position: absolute
+  left: 0
+  right: 0
+  bottom: -1px
+  // the only red element on screen at all times, so it is kept to a hairline
+  height: var(--hair)
+  background: var(--red)
+  transform: scaleX(0)
+  transform-origin: left
+  will-change: transform
+
+.cta
+  position: relative
+  display: inline-flex
+  align-items: center
+  gap: 0.7rem
+  padding: 0.7rem 0.85rem 0.7rem 1.15rem
+  border: var(--hair) solid var(--line-2)
+  border-radius: 100vmax
+  overflow: hidden
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: var(--ink)
+  white-space: nowrap
+  transition: border-color var(--t-slow) var(--e-io), color var(--t-slow) var(--e-io)
+  span
+    position: relative
+    z-index: 1
+  // the accent dot inflates to fill the pill — the house CTA gesture
+  i
+    position: absolute
+    inset: 0
+    z-index: 0
+    background: var(--red)
+    clip-path: inset(0.32rem calc(100% - 2.05rem) 0.32rem calc(100% - 0.85rem) round 100vmax)
+    transition: clip-path var(--t-slow) var(--e-io)
+  &:hover
+    border-color: var(--red)
+    i
+      clip-path: inset(0 round 100vmax)
+
+.burger
+  display: none
+  position: relative
+  width: 40px
+  height: 40px
+  border: var(--hair) solid var(--line-2)
+  border-radius: 50%
+  cursor: pointer
+  span
+    position: absolute
+    left: 50%
+    width: 15px
+    height: 1.5px
+    background: var(--ink)
+    transform: translateX(-50%)
+    transition: transform 0.4s var(--e-io), opacity 0.3s
+    &:first-child
+      top: 16px
+    &:last-child
+      top: 22px
+
+.burgerOpen
+  border-color: var(--red)
+  span
+    &:first-child
+      transform: translateX(-50%) translateY(3px) rotate(45deg)
+    &:last-child
+      transform: translateX(-50%) translateY(-3px) rotate(-45deg)
+
+.panel
+  position: fixed
+  inset: 0
+  z-index: -1
+  display: flex
+  flex-direction: column
+  justify-content: center
+  gap: 0.35rem
+  padding: calc(5rem + var(--safe-top)) var(--gutter) calc(3rem + var(--safe-bottom))
+  background: var(--bg)
+  opacity: 0
+  visibility: hidden
+  transition: opacity 0.4s var(--e-io), visibility 0.4s
+  a
+    font-family: var(--f-display)
+    font-weight: 800
+    font-size: clamp(2rem, 11vw, 3.2rem)
+    line-height: 1.08
+    letter-spacing: -0.02em
+    text-transform: uppercase
+    color: var(--ink)
+  // two classes deep, so it outranks `.panel a` without !important
+  .panelMail
+    margin-top: 2rem
+    font-family: var(--f-mono)
+    font-size: 0.8rem
+    font-weight: 500
+    letter-spacing: 0.1em
+    text-transform: none
+    color: var(--red-ink)
+
+.panelOpen
+  opacity: 1
+  visibility: visible
+
+@media (max-width: 1080px)
+  .links
+    display: none
+  .burger
+    display: block
+  .cta
+    display: none
+
+// a thumb needs 44px; a cursor does not, so desktop density is left alone
+@media (pointer: coarse)
+  .mark
+    display: inline-flex
+    align-items: center
+    min-height: 44px
+  .burger
+    width: 48px
+    height: 48px
+    span
+      &:first-child
+        top: 20px
+      &:last-child
+        top: 26px
+  .panel a
+    display: flex
+    align-items: center
+    min-height: 48px

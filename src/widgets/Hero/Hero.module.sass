@@ -1,0 +1,275 @@
+.hero
+  position: relative
+  // vh first: an engine without svh drops the svh line and keeps this one
+  min-height: 100vh
+  min-height: 100svh
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  padding-block: 7rem 2rem
+  overflow: hidden
+  isolation: isolate
+
+// ── ambient stage: hairline guides + the ember ring ────────
+.stage
+  position: absolute
+  inset: 0
+  z-index: 0
+  display: grid
+  place-items: center
+  pointer-events: none
+
+.guides
+  position: absolute
+  width: 150vw
+  height: 150vh
+  opacity: 0.7
+  i
+    position: absolute
+    top: 50%
+    left: 0
+    width: 100%
+    height: var(--hair)
+    background: linear-gradient(90deg, transparent, var(--line), transparent)
+    transform-origin: 50% 50%
+
+.ring
+  position: relative
+  width: min(46rem, 62vmin)
+  aspect-ratio: 1
+  border-radius: 50%
+  background: linear-gradient(180deg, var(--red) 0%, #6b0f18 34%, #170c10 68%, #0a0a0c 100%)
+  box-shadow: 0 -1.5rem 3.4rem 0.05rem var(--red-glow), 0 0 8rem rgba(225, 29, 42, 0.08)
+  filter: saturate(115%)
+
+// the black core that hides the middle of the disc — scaled x3 on scroll,
+// which is how the whole stage goes dark as the hero leaves
+.core
+  position: absolute
+  inset: 0
+  border-radius: 50%
+  background: radial-gradient(circle at 50% 50%, var(--bg) 42%, rgba(5, 5, 5, 0) 74%)
+
+.inner
+  position: relative
+  z-index: 2
+  flex: 1
+  display: grid
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr)
+  grid-template-rows: auto 1fr auto
+  align-items: end
+  gap: 1.5rem 3rem
+  perspective: 1200px
+
+.eyebrow
+  grid-column: 1 / -1
+  align-self: start
+  justify-self: start
+
+.title
+  grid-column: 1
+  grid-row: 2
+  align-self: end
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: var(--fs-dis1)
+  line-height: 0.88
+  letter-spacing: -0.035em
+  text-transform: uppercase
+  color: var(--ink)
+  transform-style: preserve-3d
+
+.l1
+  transform-origin: center 220%
+
+.l2
+  color: var(--ink-2)
+  transform-origin: center -120%
+
+.word
+  display: inline-block
+  font-style: normal
+  animation: wordIn 0.7s var(--e-out) both
+
+@keyframes wordIn
+  from
+    opacity: 0
+    filter: blur(10px)
+    transform: translateY(0.08em)
+  to
+    opacity: 1
+    filter: blur(0)
+    transform: none
+
+.aside
+  grid-column: 2
+  grid-row: 2
+  align-self: end
+  max-width: 30rem
+  transform-origin: center top
+
+.kicker
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: var(--sub)
+  margin-bottom: 1rem
+  b
+    color: var(--red-ink)
+    font-weight: 500
+
+.lead
+  font-size: var(--fs-lead)
+  line-height: 1.55
+  color: var(--body)
+  margin-bottom: 1.85rem
+
+.actions
+  display: flex
+  flex-wrap: wrap
+  gap: 0.65rem
+
+.solid, .ghost
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  padding: 0.95rem 1.8rem
+  border-radius: 100vmax
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  border: var(--hair) solid transparent
+  transition: background var(--t-slow) var(--e-io), color var(--t-slow) var(--e-io), border-color var(--t-slow) var(--e-io)
+
+.solid
+  background: var(--ink)
+  color: var(--bg)
+  &:hover
+    background: var(--red)
+    color: #fff
+
+.ghost
+  border-color: var(--line-2)
+  color: var(--ink)
+  &:hover
+    border-color: var(--red)
+    background: var(--red-soft)
+
+.cue
+  grid-column: 1
+  grid-row: 3
+  display: flex
+  align-items: center
+  gap: 0.55rem
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: var(--disable)
+  svg
+    width: 1.3em
+    height: 1.3em
+    flex-shrink: 0
+
+// ── stack marquee ─────────────────────────────────────────
+.marquee
+  position: relative
+  z-index: 2
+  margin-top: 2.5rem
+  padding-top: 1.6rem
+  border-top: var(--hair) solid var(--line)
+  overflow: hidden
+  opacity: 0.45
+  // percentage stops so the fade scales with the viewport instead of eating a phone screen
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)
+
+.track
+  display: flex
+  width: max-content
+  animation: drift 64s linear infinite
+
+.row
+  display: flex
+  align-items: center
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.2em
+  text-transform: uppercase
+  color: var(--ink)
+  span
+    display: inline-flex
+    align-items: center
+    white-space: nowrap
+  i
+    display: inline-block
+    width: 4px
+    height: 4px
+    margin: 0 2.2rem
+    border-radius: 50%
+    background: var(--red)
+
+@keyframes drift
+  to
+    transform: translateX(-50%)
+
+.veil
+  position: absolute
+  inset: 0
+  z-index: 3
+  pointer-events: none
+  opacity: 0
+  visibility: hidden
+  backdrop-filter: blur(6px) brightness(55%)
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0) 40%, rgba(5, 5, 5, 0.85) 100%)
+
+@media (pointer: coarse)
+  .solid, .ghost
+    padding-block: 1.15rem
+
+// landscape phones: the headline alone would fill the screen and push the lead
+// and both buttons below the fold, so the type is sized from the height instead
+@media (max-height: 560px) and (orientation: landscape)
+  .hero
+    min-height: auto
+    padding-block: 4.2rem 1.2rem
+  .inner
+    gap: 0.9rem 2rem
+  .title
+    font-size: clamp(1.9rem, 8vh, 4rem)
+  .lead
+    margin-bottom: 1.1rem
+  .ring
+    width: min(28rem, 78vh)
+  // the greeting and the scroll cue are the two things a 390px-tall screen can
+  // spare; the name still reaches screen readers from the h1.
+  // !important because the global .eyebrow pill wins on bundle order — the same
+  // collision the Stack head and Nav panelMail already work around.
+  .eyebrow
+    display: none !important
+  .cue,
+  .marquee
+    display: none
+
+@media (max-width: 900px)
+  .hero
+    padding-block: 6.5rem 1.5rem
+  .inner
+    grid-template-columns: 1fr
+    grid-template-rows: auto auto auto auto
+    gap: 2rem
+  .title
+    grid-row: 2
+  .aside
+    grid-column: 1
+    grid-row: 3
+    max-width: none
+  .cue
+    grid-row: 4
+  .ring
+    width: min(30rem, 88vw)

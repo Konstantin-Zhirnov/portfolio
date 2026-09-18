@@ -1,8 +1,273 @@
+// ─────────────────────────────────────────────────────────────
+//  Cinematic Red — design tokens
+//  Stage #050505 · one accent #E11D2A · Bricolage Grotesque / Inter / JetBrains Mono
+// ─────────────────────────────────────────────────────────────
+
+:root
+  // surfaces
+  --bg: #050505
+  --bg-sub: #0A0A0C
+  --surface: #101014
+  --surface-2: #17171C
+  --card: rgba(255, 255, 255, 0.028)
+
+  // ink
+  --ink: #ffffff
+  --ink-2: #7E7E84
+  // alphas are set so every step clears WCAG AA 4.5:1 on the #050505 stage:
+  // body 8.3:1, sub 5.7:1, disable 4.6:1
+  --body: rgba(255, 255, 255, 0.64)
+  --sub: rgba(255, 255, 255, 0.52)
+  --disable: rgba(255, 255, 255, 0.46)
+
+  // lines
+  --line: rgba(255, 255, 255, 0.09)
+  --line-2: rgba(255, 255, 255, 0.18)
+  --hair: 1px
+
+  // accent — one colour, three jobs: labels, active state, the hero ring
+  --red: #E11D2A
+  --red-2: #FF4438
+  --red-soft: rgba(225, 29, 42, 0.14)
+  --red-glow: rgba(225, 29, 42, 0.55)
+  // #E11D2A reads 3.99:1 on the stage, so text takes the brighter tone (6:1)
+  // while fills, borders and the ring keep the brand red
+  --red-ink: var(--red-2)
+  // recurring alphas the palette used to leave components to invent
+  --red-edge: rgba(225, 29, 42, 0.45)
+  --red-wash: rgba(225, 29, 42, 0.16)
+  --scrim: rgba(5, 5, 5, 0.66)
+  --shadow: rgba(0, 0, 0, 0.7)
+
+  // type
+  --f-display: 'Bricolage Grotesque', 'Arial Black', sans-serif
+  --f-body: 'Inter', system-ui, -apple-system, sans-serif
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace
+
+  --fs-dis1: clamp(2.7rem, 10.4vw, 9rem)
+  --fs-dis2: clamp(2.1rem, 6.4vw, 5.2rem)
+  --fs-h2: clamp(1.85rem, 4.4vw, 3.6rem)
+  --fs-h3: clamp(1.15rem, 1.9vw, 1.55rem)
+  --fs-lead: clamp(1rem, 1.35vw, 1.18rem)
+  --fs-body: 1rem
+  --fs-mono: 0.7rem
+  // the second mono tier: tech chips, credential labels, the footer line
+  --fs-micro: 0.625rem
+
+  // rhythm
+  --container: 1360px
+  // how far a full-bleed box steps in to line up with .container's content edge.
+  // The % resolves against the box that uses it, so it only belongs on boxes that
+  // span the whole viewport (the reel stage, the stack rows).
+  --bleed: max(0px, (100% - var(--container)) / 2)
+  --gutter-base: clamp(1.25rem, 5vw, 3rem)
+  // viewport-fit=cover opts the page into the display cutout, so the gutter has
+  // to clear it; env() resolves to 0px on every screen without one
+  --gutter: max(var(--gutter-base), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px))
+  --safe-top: env(safe-area-inset-top, 0px)
+  --safe-bottom: env(safe-area-inset-bottom, 0px)
+  // the fixed bar's height; Nav overwrites it with the measured value
+  --nav-h: 5rem
+  --section-y: clamp(5.5rem, 11vw, 10rem)
+
+  // motion
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1)
+  --e-io: cubic-bezier(0.785, 0.135, 0.15, 0.86)
+  --t-hover: 0.38s
+  --t-slow: 0.65s
+
 *
   margin: 0
   padding: 0
   box-sizing: border-box
-  font-family: "Poppins", sans-serif
+
+html
+  // the page is dark-only, so the scrollbar and every other UA surface
+  // should be dark too instead of shipping the browser's light default
+  color-scheme: dark
+  scrollbar-color: var(--line-2) var(--bg)
+  scroll-behavior: auto
+  -webkit-text-size-adjust: 100%
+
+body
+  background: var(--bg)
+  color: var(--body)
+  font-family: var(--f-body)
+  font-size: var(--fs-body)
+  line-height: 1.62
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  overflow-x: hidden
 
 #root
   width: 100%
+  position: relative
+
+img, svg
+  max-width: 100%
+  display: block
+
+a
+  color: inherit
+  text-decoration: none
+
+button, input, textarea
+  font: inherit
+  color: inherit
+  background: none
+  border: none
+
+::selection
+  background: var(--red)
+  color: #fff
+
+// keyboard focus stays visible everywhere
+:focus-visible
+  outline: 2px solid var(--red-2)
+  outline-offset: 3px
+  border-radius: 2px
+
+// sections take focus programmatically after in-page navigation, so the next Tab
+// starts from there; outlining a whole section says nothing the scroll did not
+[tabindex='-1']:focus
+  outline: none
+
+// ── skip link ──────────────────────────────────────────────
+.skip
+  position: absolute
+  left: -9999px
+  top: 0
+  z-index: 300
+  &:focus
+    left: 1rem
+    top: 1rem
+    padding: 0.75rem 1.25rem
+    background: var(--ink)
+    color: var(--bg)
+    border-radius: 100vmax
+
+// ── custom cursor takes over only when the widget says so ──
+html.has-cursor,
+html.has-cursor a,
+html.has-cursor button
+  cursor: none
+
+// ── film grain over the whole stage ────────────────────────
+.grain
+  position: fixed
+  inset: 0
+  z-index: 1
+  pointer-events: none
+  // no blend mode: a fixed full-viewport `overlay` layer makes the browser
+  // composite everything beneath it on every frame, including the reel scrub
+  opacity: 0.028
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")
+
+// ── masked line reveal (the house reveal system) ───────────
+// markup: <span class="line"><span>text</span></span>
+.line
+  display: block
+  overflow: hidden
+  > span
+    display: block
+
+// before GSAP takes over, hide what it is about to animate in
+.js [data-lines] .line > span
+  transform: translateY(110%)
+
+.js [data-reveal]
+  opacity: 0
+
+.js [data-reveal='stagger'] > *
+  opacity: 0
+
+.js [data-reveal='stagger']
+  opacity: 1
+
+// cards wait tilted back until their group is reached
+.js [data-tilt]:not([data-tilt='self']) > *,
+.js [data-tilt='self']
+  opacity: 0
+
+// ── shared section furniture ───────────────────────────────
+.container
+  width: 100%
+  max-width: var(--container)
+  margin-inline: auto
+  padding-inline: var(--gutter)
+
+.section
+  position: relative
+  padding-block: var(--section-y)
+
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  white-space: nowrap
+  border: 0
+
+// display heading used by every section
+.h2
+  font-family: var(--f-display)
+  font-weight: 800
+  font-size: var(--fs-h2)
+  line-height: 0.94
+  letter-spacing: -0.032em
+  text-transform: uppercase
+  color: var(--ink)
+
+.lead
+  max-width: 40rem
+  font-size: var(--fs-lead)
+  line-height: 1.6
+  color: var(--body)
+
+// section head: eyebrow → display heading → lead
+.head
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 1.35rem
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem)
+
+.eyebrow
+  display: inline-flex
+  align-items: center
+  gap: 0.6rem
+  font-family: var(--f-mono)
+  font-size: var(--fs-mono)
+  font-weight: 500
+  letter-spacing: 0.24em
+  text-transform: uppercase
+  color: var(--sub)
+  padding: 0.5rem 1rem 0.5rem 0.85rem
+  border: var(--hair) solid var(--line)
+  border-radius: 100vmax
+  background: var(--card)
+  &::before
+    content: ''
+    width: 5px
+    height: 5px
+    border-radius: 50%
+    background: var(--red)
+
+// 11px mono reads fine under a mouse and badly under a thumb
+@media (pointer: coarse)
+  :root
+    --fs-mono: 0.75rem
+    --fs-micro: 0.7rem
+
+// Movement goes; feedback stays. Killing every transition also kills hover,
+// focus and active states, which a reader who asked for less motion still needs.
+@media (prefers-reduced-motion: reduce)
+  *, *::before, *::after
+    animation-duration: 0.01ms !important
+    animation-iteration-count: 1 !important
+    transition-property: color, background-color, border-color, box-shadow, opacity !important
+    transition-duration: 0.16s !important
+    scroll-behavior: auto !important

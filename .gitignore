@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# logs
+dev.log
+build.log
+
+# design references and the raw kie.ai generations behind public/portrait
+/references
+
+# per-machine tool settings (Claude Code permissions and hooks, Impeccable consent)
+/.claude/settings.local.json
+/.impeccable/*.local.json
+
+# the original photograph behind the AI portrait plates; the site never loads it
+/src/shared/assets/portrait-source.jpg
