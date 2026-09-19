@@ -125,7 +125,6 @@ export const stack: { group: string; items: string[] }[] = [
       'PostgreSQL',
       'MongoDB',
       'MySQL',
-      'Redis',
       'SQL',
     ],
   },
