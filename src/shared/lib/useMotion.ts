@@ -198,7 +198,7 @@ export const useMotion = () => {
       root.classList.remove('js')
       lenis?.destroy()
       lenis = null
-      if (process.env.NODE_ENV !== 'production') {
+      if (import.meta.env.DEV) {
         // eslint-disable-next-line no-console
         console.error('[motion] disabled after an error', error)
       }

@@ -53,7 +53,7 @@ const Portrait: React.FC<{ alt: string; caption: string }> = ({ alt, caption }) 
 
     const { dir, count } = window.matchMedia(PHONE).matches ? SETS.mobile : SETS.desktop
     const src = (i: number) =>
-      `${process.env.PUBLIC_URL}/portrait/${dir}/f${String(i).padStart(3, '0')}.webp`
+      `${import.meta.env.BASE_URL}portrait/${dir}/f${String(i).padStart(3, '0')}.webp`
 
     const plates = new Array<HTMLImageElement | undefined>(count)
     const cursor = { frame: 0 }

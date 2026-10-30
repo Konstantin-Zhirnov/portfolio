@@ -20,7 +20,7 @@ export const profile = {
   githubHandle: 'Konstantin-Zhirnov',
   telegram: 'https://t.me/+12507972834',
   whatsapp: 'https://api.whatsapp.com/send?phone=12507972834',
-  resume: `${process.env.PUBLIC_URL}/Konstantin_Zhirnov.pdf`,
+  resume: `${import.meta.env.BASE_URL}Konstantin_Zhirnov.pdf`,
   resumeFile: 'Konstantin_Zhirnov.pdf',
   heroLead:
     'I build websites, web apps and AI products for businesses on Vancouver Island. Most sites go live in one to three weeks.',

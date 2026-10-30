@@ -23,7 +23,7 @@ class Boundary extends React.Component<Props, State> {
     const root = document.documentElement
     root.classList.remove('has-cursor')
     root.classList.remove('js')
-    if (process.env.NODE_ENV !== 'production') {
+    if (import.meta.env.DEV) {
       // eslint-disable-next-line no-console
       console.error(`[${this.props.name}] failed and was taken off the page`, error)
     }
