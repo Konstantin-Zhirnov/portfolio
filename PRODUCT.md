@@ -21,7 +21,7 @@ within one click. They are served by the same page, but they are not who the pag
 ## Product Purpose
 
 The personal site of Konstantin Zhirnov, Full Stack Developer in Nanaimo, BC — the one page that
-carries both halves of his working life: the client work shipped through his two companies, and the
+carries both halves of his working life: the client work shipped through his own studio, and the
 eight-year employment record behind it.
 
 Success is a started conversation about a project. A message on email, Telegram, WhatsApp or the
@@ -31,27 +31,27 @@ shaped around.
 ## Positioning
 
 One person owns the entire chain — design, build, deploy, support — so the client talks to the
-developer writing the code rather than to an account manager. Two companies run in parallel out of
-Nanaimo since January 2026: **Web Solutions** (create-website.ca) for websites and web apps for
-small businesses, and **AI Solutions** (ai-solutions.live) for AI products, agents and automation.
-The pairing is the position: a local web studio that can also ship LLM products that take real
-action, which neither a generic local agency nor a remote AI shop can claim truthfully.
+developer writing the code rather than to an account manager. One studio runs out of Nanaimo since
+January 2026: **Island Web Design Studio** (create-website.ca) for websites, web apps and AI
+products for small businesses. The position: a local web studio that can also ship LLM products
+that take real action, which neither a generic local agency nor a remote AI shop can claim
+truthfully.
 
 ## Operating Context
 
-- Clients are local and small; most Web Solutions sites ship in one to three weeks.
-- The page is a single scrolling document with in-page navigation — Home, About, Companies,
+- Clients are local and small; most Island Web Design Studio sites ship in one to three weeks.
+- The page is a single scrolling document with in-page navigation — Home, About, Studio,
   Expertise, Stack, Experience, Projects, Contact — not a multi-route site.
 - There is no contact form. Enquiries arrive through direct channels: email, phone, Telegram,
   WhatsApp, plus LinkedIn and GitHub for the hiring audience.
 - The résumé PDF (`public/Konstantin_Zhirnov.pdf`) is the artefact the hiring audience wants.
-- Project screenshots are shared with the Web Solutions studio site (`C:\Projects\studio`), so the
+- Project screenshots are shared with the Island Web Design Studio site (`C:\Projects\studio`), so the
   two properties show the same client work.
 
 ## Capabilities and Constraints
 
-**Confirmed content the site carries:** profile and bio; two company cards; four expertise
-disciplines; a five-group technology stack; seven employment entries from 2018 to now; eight live
+**Confirmed content the site carries:** profile and bio; one studio card; four expertise
+disciplines; a five-group technology stack; seven employment entries from 2018 to now; seven live
 client projects with screenshots and links; two education credentials; four headline statistics;
 five contact channels.
 
@@ -66,7 +66,7 @@ five contact channels.
 
 **Explicitly open:** the site is static today, but a backend is *not* ruled out — a serverless
 function and a real contact form are permitted future work if they serve the client audience. The
-existing Web Solutions mail route (`Studio/app/api/mail/route.ts`, which forwards into Telegram) is
+existing Island Web Design Studio mail route (`Studio/app/api/mail/route.ts`, which forwards into Telegram) is
 the shape to follow if one is added.
 
 **Audience order in copy:** the hero, the header CTA ("Start a project") and the page meta lead
@@ -81,7 +81,7 @@ the Contact section, and nowhere above the fold.
   it does not redesign it away.
 - Voice in the shipped copy is first-person, plain and unhedged, with concrete numbers rather than
   adjectives ("you talk to the person writing the code").
-- Company names in use: Web Solutions, AI Solutions, Helper AI (helper-ai.org).
+- Company names in use: Island Web Design Studio, Helper AI (helper-ai.org).
 
 ## Evidence on Hand
 
@@ -99,7 +99,7 @@ the Contact section, and nowhere above the fold.
 
 **Assets:**
 
-- Eight client site screenshots, 1400×875, in `src/shared/assets/work/`: AI Solutions, Helper AI,
+- Seven client site screenshots, 1400×875, in `src/shared/assets/work/`: Helper AI,
   Athecon Projects, P3 Mechanical & Electrical, Pahlavan General Contracting, UPGREAT Home
   Renovations, Yankovska School of Rhythmic Gymnastics, Mobile Paintless Dent Repair. Every one is a
   live site.

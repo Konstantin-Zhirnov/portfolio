@@ -1,6 +1,6 @@
 /**
  * Every word and link on the site lives here, so the page components stay layout-only.
- * Sources: the CV (Feb 2026), create-website.ca and ai-solutions.live.
+ * Sources: the CV (Feb 2026) and create-website.ca.
  */
 
 // Contact details below are mirrored in the <noscript> block of public/index.html,
@@ -26,24 +26,24 @@ export const profile = {
     'I build websites, web apps and AI products for businesses on Vancouver Island. Most sites go live in one to three weeks.',
   bio: [
     'I have been building for the web since 2018 — first for agencies and product teams, then for a bank, a steel company, and a B2B portal I rewrote from scratch for 26,000 new clients. Speed, accessibility and search ranking are part of the build, not the phase that gets cut.',
-    'Since January 2026 I run two of my own companies out of Nanaimo: Web Solutions, a web studio for small businesses across Vancouver Island, and AI Solutions, an AI product studio. I design, build and support everything myself — you talk to the person writing the code.',
+    'Since January 2026 I run my own studio out of Nanaimo: Island Web Design Studio, building websites, web apps and AI products for small businesses across Vancouver Island. I design, build and support everything myself — you talk to the person writing the code.',
   ],
 }
 
 export const stats = [
   { value: '2018', label: 'Building for the web since' },
   { value: '30+', label: 'Websites shipped' },
-  { value: '02', label: 'Companies of my own' },
+  { value: '08', label: 'Years of commercial work' },
   { value: '5.0', label: 'Rating on Google' },
 ]
 
 export const companies = [
   {
-    id: 'web-solutions',
-    name: 'Web Solutions',
+    id: 'island-web-design-studio',
+    name: 'Island Web Design Studio',
     url: 'https://create-website.ca/',
     since: 'Since January 2026',
-    kind: 'Web studio · Nanaimo, Vancouver Island',
+    kind: 'Web design studio · Nanaimo, Vancouver Island',
     text: 'Fast, SEO-optimized, mobile-first websites and web apps for small businesses — from the first sketch of a brand to the local search traffic that finds it.',
     services: [
       'Business websites',
@@ -52,21 +52,6 @@ export const companies = [
       'UI/UX design',
       'Brand identity',
       'Local SEO',
-    ],
-  },
-  {
-    id: 'ai-solutions',
-    name: 'AI Solutions',
-    url: 'https://ai-solutions.live/',
-    since: 'Since January 2026',
-    kind: 'AI product studio',
-    text: 'Frontier AI turned into working products: custom applications, agents and chatbots that resolve real tasks, LLM integration into systems already running, and automation that makes routine work disappear.',
-    services: [
-      'Custom AI apps',
-      'AI agents & chatbots',
-      'LLM integration',
-      'Process automation',
-      'Evaluation & guardrails',
     ],
   },
 ]
@@ -171,9 +156,9 @@ export const stack: { group: string; items: string[] }[] = [
 export const experience = [
   {
     years: '2026 — now',
-    company: 'Web Solutions · AI Solutions',
+    company: 'Island Web Design Studio',
     role: 'Founder, Full Stack Developer',
-    text: 'Run both companies end to end — design, build, deploy and support websites, web apps and AI products for clients across Vancouver Island.',
+    text: 'Run the studio end to end — design, build, deploy and support websites, web apps and AI products for clients across Vancouver Island.',
     tech: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Claude API', 'Stripe'],
   },
   {
@@ -231,15 +216,6 @@ export type Project = {
 }
 
 export const projects: Project[] = [
-  {
-    id: 'ai-solutions',
-    tag: 'AI product studio',
-    title: 'AI Solutions',
-    text: 'A modern AI product studio website that positions the brand as an end-to-end partner for building real AI-powered products.',
-    tech: ['AI-focused', 'Premium design', 'Service-led'],
-    url: 'https://ai-solutions.live',
-    shot: 'ai-solutions',
-  },
   {
     id: 'helper',
     tag: 'AI booking SaaS',
@@ -325,7 +301,7 @@ export const education = [
 export const nav = [
   { label: 'Home', href: '#top' },
   { label: 'About', href: '#about' },
-  { label: 'Companies', href: '#now' },
+  { label: 'Studio', href: '#now' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Stack', href: '#stack' },
   { label: 'Experience', href: '#work' },
@@ -353,7 +329,7 @@ export const hero = {
   // the second display line; the first cycles through profile.roles
   title: 'Developer',
   mark: '(/)',
-  kicker: 'Web Solutions · AI Solutions',
+  kicker: 'Island Web Design Studio',
   primary: { label: 'See the work', href: '#projects' },
   cue: 'Scroll to begin',
   marquee: [
@@ -383,8 +359,8 @@ export const heads: Record<
   },
   now: {
     eyebrow: '// Currently',
-    title: ['Two companies', 'of my own'],
-    lead: 'Since January 2026 I have been running both out of Nanaimo — one building the web for small businesses across Vancouver Island, the other turning frontier AI into products people actually use.',
+    title: ['A studio', 'of my own'],
+    lead: 'Since January 2026 I have been running Island Web Design Studio out of Nanaimo — building the web, and the AI behind it, for small businesses across Vancouver Island.',
   },
   expertise: {
     eyebrow: '// Core disciplines',
@@ -399,12 +375,12 @@ export const heads: Record<
   work: {
     eyebrow: '// Track record',
     title: ['Where the', 'hours went'],
-    lead: 'Eight years from agency work through an internal banking platform and a B2B portal rewrite, to running two companies of my own.',
+    lead: 'Eight years from agency work through an internal banking platform and a B2B portal rewrite, to running a studio of my own.',
   },
   projects: {
     eyebrow: '// Selected work',
     title: ['Projects that', 'define the journey'],
-    lead: 'Eight sites and products, every one of them live right now, and every one designed, built and deployed by me.',
+    lead: 'Seven sites and products, every one of them live right now, and every one designed, built and deployed by me.',
   },
   education: {
     eyebrow: '// Formal training',
@@ -438,7 +414,7 @@ export const footer = {
   sections: 'Sections',
   companies: 'Companies',
   elsewhere: 'Elsewhere',
-  // listed in the footer beside the two companies
+  // listed in the footer beside the studio
   products: [{ name: 'Helper AI', url: 'https://helper-ai.org/' }],
   resume: 'Résumé (PDF)',
   cta: 'Have something to build? Write to me directly.',

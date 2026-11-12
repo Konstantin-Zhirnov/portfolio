@@ -16,7 +16,7 @@ npm run build # production bundle into build/
 | `src/shared/content.ts` | **every word and link on the site** — profile, companies, expertise, stack, experience, projects, education. Edit copy here, not in the components. |
 | `src/app/App.sass` | design tokens (colour, type, rhythm, motion) as CSS custom properties, plus the shared section furniture (`.container`, `.section`, `.h2`, `.eyebrow`, `.lead`, `.head`, `.line`). |
 | `src/shared/lib/useMotion.ts` | the whole motion layer: Lenis + ScrollTrigger boot and the reveal system. |
-| `src/shared/assets/` | `portrait.jpg` (duotone plate used in About), `portrait-source.jpg` (the untouched original), `work/` (site screenshots, shared with the Web Solutions studio site). |
+| `src/shared/assets/` | `portrait.jpg` (duotone plate used in About), `portrait-source.jpg` (the untouched original), `work/` (site screenshots, shared with the Island Web Design Studio site). |
 | `src/widgets/*` | one folder per section: `index.tsx` + `*.module.sass`. |
 
 ## Motion
@@ -52,5 +52,5 @@ it mirrors `profile` in `content.ts`, so update both together.
   invalid in a selector. Use refs.
 - The contact section has no form: the site is static, so it lists direct channels instead.
   To add one, put an `api/mail.ts` function next to the build (the site already runs on Vercel)
-  and POST `{ spam_2026, name, contact, message }` to it — same shape as the Web Solutions studio
+  and POST `{ spam_2026, name, contact, message }` to it — same shape as the Island Web Design Studio
   route in `Studio/app/api/mail/route.ts`, which forwards the enquiry into Telegram.
