@@ -8,9 +8,9 @@ web
 
 ## Users
 
-**Primary: prospective clients.** Owners and operators of small businesses on Vancouver Island
-(Nanaimo and around) who need a website, a web app, or an AI product built and supported. They
-arrive from local search, a referral, or one of the two studio sites, and they are deciding whether
+**Primary: prospective clients.** Owners and operators of businesses of any size, anywhere in the
+world, who need a website, a web app, or an AI product built and supported. They
+arrive from search, a referral, or the studio site, and they are deciding whether
 one person can be trusted with the whole job. They are not developers; they judge by the work shown
 and by how easy it is to start a conversation.
 
@@ -33,9 +33,9 @@ shaped around.
 One person owns the entire chain — design, build, deploy, support — so the client talks to the
 developer writing the code rather than to an account manager. One studio runs out of Nanaimo since
 January 2026: **Island Web Design Studio** (create-website.ca) for websites, web apps and AI
-products for small businesses. The position: a local web studio that can also ship LLM products
-that take real action, which neither a generic local agency nor a remote AI shop can claim
-truthfully.
+products for businesses of any size, with clients anywhere in the world. The position: a web
+studio based in Nanaimo that can also ship LLM products that take real action, which neither a
+generic web agency nor an AI-only shop can claim truthfully.
 
 ## Operating Context
 
